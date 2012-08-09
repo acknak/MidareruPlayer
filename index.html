@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+	<meta charset="utf-8">
+	<title>Midareru Player</title>
+	<script type="text/javascript" src="./utf.js"></script>
+	<script type="text/javascript" src="./jukebox.js"></script>
+	<script type="text/javascript">
+<!--
+
+window.addEventListener("load",function(){
+
+// set jukebox
+jukebox = new Jukebox({baseElementId:"midareru_player",numMusic:0,strMusicL:"./music/"});
+
+// toggle button
+document.getElementById("play_pause").addEventListener("click",function(){
+  if(jukebox.isPlaying()){
+    jukebox.pause();
+  }else{
+    jukebox.play();
+  }
+},false);
+
+// stop button
+document.getElementById("stop").addEventListener("click",function(){jukebox.stop()},false);
+
+// skip button
+document.getElementById("skip").addEventListener("click",function(){jukebox.skip()}, false);
+
+// midareru button
+document.getElementById("noloop").addEventListener("click",function(){jukebox.isLoop(false)}, false);
+
+// loop button
+document.getElementById("loop").addEventListener("click",function(){jukebox.isLoop(true)}, false);
+
+// volume button
+document.getElementById("volume").addEventListener("change",function(){jukebox.setVolume(this.value/this.max)}, false);
+
+// change title
+document.title = document.title + " ("+jukebox.getOptions().numMusic+" songs)";
+var player_title = document.getElementById("player_title");
+player_title.replaceChild(document.createTextNode(document.title),player_title.firstChild);
+
+}, false);
+
+-->
+</script>
+</head>
+
+<body>
+<form id="midareru_player" action="#">
+	<fieldset>
+		<legend id="player_title">Vocaloid Midareru Player</legend>
+		<table class='information' border=1 cellspacing=0>
+			<tr><th></th><th>前の曲</th><th>再生中</th><th>次の曲</th></tr>
+			<tr><td>曲名</td><td id="title0">ぬるぽ</td><td id="title1">よみこみちう...</td><td id="title2">よみこみちう...</td></tr>
+			<tr><td>時間</td><td id="time0"></td><td id="time1"></td><td id="time2"></td></tr>
+			<tr><td>歌い手</td><td id="artist0"></td><td id="artist1"></td><td id="artist2"></td></tr>
+			<tr><td>作者</td><td id="album0"></td><td id="album1"></td><td id="album2"></td></tr>
+		</table>
+		<p>
+			<input type="button" id="play_pause" value="play/pause" />
+			<input type="button" id="stop" value="stop" />
+			<input type="button" id="skip" value="skip" />
+		</p>
+		<p>
+			<label for="volume">volume:</label>
+			<input type="range" id="volume" name="volume" min="0" max="100" value="50" />
+		</p>
+		<p>
+			<label><input type="radio" id="noloop" name="isloop" checked />midareuchi</label>
+			<label><input type="radio" id="loop" name="isloop" />loop</label>
+		</p>
+	</fieldset>
+</form>
+</body>
+</html>
