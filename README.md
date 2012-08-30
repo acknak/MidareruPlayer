@@ -1,6 +1,6 @@
 MidareruPlayer
 ======================
-.ogg player of javascript
+.ogg player of javascript with audio tag
 
 directory (sample)
 ------
